@@ -6,5 +6,6 @@ Made possible by [data](https://github.com/wadefagen/datasets/tree/master/gpa) r
 
 Available at **[coursegrades.web.illinois.edu](coursegrades.web.illinois.edu)**.
 
-Or, deploy locally with:
+Or, deploy locally with:  
+`pip install -r requirements.txt`  
 `flask run`
