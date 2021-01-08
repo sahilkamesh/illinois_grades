@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Illinois Grades</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/w3.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-light-grey w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/index" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="/class" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Find Your Class!</a>
+        <!-- 
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a> -->
+      </div>
+
+  <!-- Navbar on small screens -->
+  <!-- <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div> -->
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-illini-blue w3-center" style="padding:40px">
+  <h1 class="w3-margin w3-jumbo">Grades at Illinois</h1>
+  <p class="w3-large">Created by Sahil Kamesh</p>
+  <!-- <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button> -->
+</header>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-32 w3-container">
+    <div class="w3-content">
+        <div class="w3-threequarter">
+            <h1>Find Your Class</h1>
+            <h3 class="w3-padding-32">Choose your options to get the grading report for a course.</h3>
+            <form action="/class" method="POST">
+                <h5 class="w3-padding-32"> Required </h5>
+                <label for="subject">Subject*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select id="subject_code" name="subject_code" style="width: 65%;" required>
+                    <option value="" selected="selected"></option>
+                    <option value="ACCY">Accountancy</option><option value="ASRM">Actuarial Science and Risk Management</option><option value="ADV">Advertising</option><option value="AE">Aerospace Engineering</option><option value="AFRO">African American Studies</option><option value="AFST">African Studies</option><option value="ABE">Agricultural and Biological Engineering</option><option value="ACE">Agricultural and Consumer Economics</option><option value="AGCM">Agricultural Communications</option><option value="AGED">Agricultural Education</option><option value="ALEC">Agricultural Leadership, Education, and Communications Program</option><option value="ACES">Agricultural, Consumer and Environmental Sciences</option><option value="AFAS">Air Force Aerospace Studies</option><option value="AIS">American Indian Studies</option><option value="ANSC">Animal Sciences</option><option value="ANTH">Anthropology</option><option value="AHS">Applied Health Sciences Courses</option><option value="ARAB">Arabic</option><option value="ARCH">Architecture</option><option value="ART">Art</option><option value="ARTD">Art--Design</option><option value="ARTE">Art--Education</option><option value="ARTF">Art--Foundation</option><option value="ARTH">Art--History</option><option value="ARTS">Art--Studio</option><option value="AAS">Asian American Studies</option><option value="ASST">Asian Studies</option><option value="ASTR">Astronomy</option><option value="ATMS">Atmospheric Sciences</option><option value="BASQ">Basque</option><option value="BIOC">Biochemistry</option><option value="BIOE">Bioengineering</option><option value="BIOL">Biology</option><option value="BSE">Biomedical Sciences and Engineering</option><option value="BIOP">Biophysics</option><option value="BCS">Bosnian-Croatian-Serbian</option><option value="BCOG">Brain and Cognitive Science</option><option value="BULG">Bulgarian</option><option value="BUS">Business</option><option value="BADM">Business Administration</option><option value="BTW">Business and Technical Writing</option><option value="BDI">Business Data and Innovation</option><option value="CHP">Campus Honors Program Courses</option><option value="CATL">Catalan</option><option value="CDB">Cell and Developmental Biology</option><option value="CAS">Center for Advanced Study</option><option value="CHBE">Chemical and Biomolecular Engineering</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CEE">Civil and Environmental Engineering</option><option value="CLCV">Classical Civilization</option><option value="CLE">Clinical Sciences and Engineering</option><option value="CIC">Committee on Inst Cooperation</option><option value="CMN">Communication</option><option value="CHLH">Community Health</option><option value="CWL">Comparative and World Literature</option><option value="CB">Comparative Biosciences</option><option value="CSE">Computational Science and Engineering</option><option value="CS">Computer Science</option><option value="CW">Creative Writing</option><option value="CPSC">Crop Sciences</option><option value="CI">Curriculum and Instruction</option><option value="CZCH">Czech</option><option value="DANC">Dance</option><option value="ESE">Earth, Society, and Environment</option><option value="EALC">East Asian Language and Culture</option><option value="ECON">Economics</option><option value="EDUC">Education</option><option value="EPOL">Education Policy, Organization and Leadership</option><option value="EOL">Educational Organization and Leadership</option><option value="EPS">Educational Policy Studies</option><option value="EDPR">Educational Practice</option><option value="EPSY">Educational Psychology</option><option value="ECE">Electrical and Computer Engineering</option><option value="ENG">Engineering</option><option value="ENGH">Engineering Honors</option><option value="ENGL">English</option><option value="ESL">English as a Second Language</option><option value="EIL">English as an International Language</option><option value="ENT">Entomology</option><option value="ENVS">Environmental Studies</option><option value="ENSU">Environmental Sustainability</option><option value="EURO">European Union Studies</option><option value="FIN">Finance</option><option value="FAA">Fine and Applied Arts</option><option value="FSHN">Food Science and Human Nutrition</option><option value="FLTE">Foreign Language Teacher Education</option><option value="FR">French</option><option value="GWS">Gender and Women's Studies</option><option value="GS">General Studies</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="GER">German</option><option value="GMC">Germanic</option><option value="GLBL">Global Studies</option><option value="GC">Graduate College</option><option value="GRK">Greek</option><option value="HT">Health Technology</option><option value="HEBR">Hebrew, Modern and Classical</option><option value="HNDI">Hindi</option><option value="HIST">History</option><option value="HORT">Horticulture</option><option value="HDFS">Human Development and Family Studies</option><option value="HDES">Human Dimensions of Environmental Systems</option><option value="HRD">Human Resource Development</option><option value="HUM">Humanities Courses</option><option value="IE">Industrial Engineering</option><option value="INFO">Informatics</option><option value="IS">Information Sciences</option><option value="IB">Integrative Biology</option><option value="IHLT">Interdisciplinary Health Sciences</option><option value="ITAL">Italian</option><option value="JAPN">Japanese</option><option value="JS">Jewish Studies</option><option value="JOUR">Journalism</option><option value="KIN">Kinesiology</option><option value="KOR">Korean</option><option value="LER">Labor and Employment Relations</option><option value="LA">Landscape Architecture</option><option value="LAT">Latin</option><option value="LAST">Latin American and Caribbean Studies</option><option value="LLS">Latina/Latino Studies</option><option value="LAW">Law</option><option value="LCTL">Less Commonly Taught Languages</option><option value="LAS">Liberal Arts and Sciences</option><option value="LGLA">Lingala</option><option value="LING">Linguistics</option><option value="SLCL">Literatures, Cultures, and Linguistics</option><option value="MSE">Materials Science and Engineering</option><option value="MATH">Mathematics</option><option value="ME">Mechanical Engineering</option><option value="MDIA">Media</option><option value="MACS">Media and Cinema Studies</option><option value="MDVL">Medieval Studies</option><option value="MFST">Metropolitan Food and Environmental Systems</option><option value="MICR">Microbiology</option><option value="MILS">Military Science</option><option value="GRKM">Modern Greek</option><option value="MCB">Molecular and Cell Biology</option><option value="MIP">Molecular and Integrative Physiology</option><option value="MUSE">Museum Studies</option><option value="MUS">Music</option><option value="MUSC">Music Lessons and Ensembles</option><option value="NRES">Natural Resources and Environmental Sciences</option><option value="NS">Naval Science</option><option value="NEUR">Neuroscience</option><option value="NPRE">Nuclear, Plasma, and Radiological Engineering</option><option value="NUTR">Nutritional Sciences</option><option value="LEAD">Organizational and Community Leadership</option><option value="PATH">Pathobiology</option><option value="PERS">Persian</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PBIO">Plant Biology</option><option value="PLPA">Plant Pathology</option><option value="POL">Polish</option><option value="PS">Political Science</option><option value="PORT">Portuguese</option><option value="PSM">Professional Science Master's Program</option><option value="PSYC">Psychology</option><option value="QUEC">Quechua</option><option value="RST">Recreation, Sport, and Tourism</option><option value="MBA">Regular MBA Program Administration</option><option value="REHB">Rehabilitation Counseling</option><option value="REL">Religion</option><option value="RHET">Rhetoric and Composition</option><option value="RMLG">Romance Linguistics</option><option value="RSOC">Rural Sociology</option><option value="RUSS">Russian</option><option value="REES">Russian, East European and Eurasian Studies</option><option value="SNSK">Sanskrit</option><option value="SCAN">Scandinavian</option><option value="SLS">Second Language Studies</option><option value="SLAV">Slavic</option><option value="SOCW">Social Work</option><option value="SOC">Sociology</option><option value="SAME">South Asian and Middle Eastern Studies</option><option value="SPAN">Spanish</option><option value="SPED">Special Education</option><option value="SHS">Speech and Hearing Science</option><option value="STAT">Statistics</option><option value="SBC">Strategic Brand Communication</option><option value="SWAH">Swahili</option><option value="SE">Systems Engineering and Design</option><option value="TSM">Technical Systems Management</option><option value="TMGT">Technology and Management Courses</option><option value="TE">Technology Entrepreneurship</option><option value="THEA">Theatre</option><option value="TAM">Theoretical and Applied Mechanics</option><option value="TRST">Translation Studies</option><option value="TURK">Turkish</option><option value="UKR">Ukrainian</option><option value="UP">Urban and Regional Planning</option><option value="VCM">Veterinary Clinical Medicine</option><option value="VM">Veterinary Medicine Courses</option><option value="WLOF">Wolof</option><option value="WGGP">Women and Gender in Global Perspectives Program</option><option value="WRIT">Writing Studies</option><option value="YDSH">Yiddish</option><option value="ZULU">Zulu</option>
+                </select>
+                <br><br>
+
+                <label for="course_no">Course Number*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="course_no" name="course_no" placeholder="ex: 100, 220, 350" style="width: 65%;" required>
+                <br>
+                
+                <h5 class="w3-padding-32"> Optional </h5>
+
+                <label for="year">Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select id="year" name="year" style="width: 65%;">
+                    <option value="" selected="selected"></option>
+                    <option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option>
+                </select>
+                <br><br>
+
+                <label for="term">Term&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select id="term" name="term" style="width: 65%;">
+                    <option value="" selected="selected"></option>
+                    <option value="Spring">Spring</option><option value="Summer">Summer</option><option value="Fall">Fall</option><option value="Winter">Winter</option>
+                </select>
+                <br><br>        
+
+                <label for="instructor">Instructor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="instructor" name="instructor" placeholder="ex: Curtis, Lee, Singh" style="width: 65%;"> 
+                <br><br>        
+                <br>
+                <input type="submit">
+            </form>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-32">
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge">
+    <p> Questions? Comments? Suggestions? Contact me here.</p>
+    <a href="mailto:sahilkamesh@gmail.com"> <i class="fa fa-envelope w3-hover-opacity"></i> </a>
+    <!-- <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i> -->
+ </div>
+ <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>

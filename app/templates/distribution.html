@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/w3.css') }}">
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        // Create the data table.
+        var data = google.visualization.arrayToDataTable([
+            ['Grade', 'Distribution'],
+            ['A+', {{val[0]}}],            
+            ['A', {{val[1]}}],            
+            ['A-', {{val[2]}}],
+            ['B+', {{val[3]}}], 
+            ['B', {{val[4]}}],
+            ['B-',{{val[5]}}],
+            ['C+',{{val[6]}}],
+            ['C',{{val[7]}}],
+            ['C-',{{val[8]}}],
+            ['D+',{{val[9]}}],
+            ['D',{{val[10]}}],
+            ['D-',{{val[11]}}],
+            ['F',{{val[12]}}]
+        ]);
+
+        var formatter = new google.visualization.NumberFormat({pattern: '#%'});
+        formatter.format(data, 1);
+
+        // Set chart options
+        var options = {
+            'title':'Grade Distribution for {{class_name}}',
+            'width':800,
+            'height':500,
+            backgroundColor: { 
+                fill:'transparent',
+            },
+            colors:['#E84A27'],
+            vAxis: {format: 'percent'}
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
